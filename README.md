@@ -4,13 +4,15 @@
  
 Welkom bij het Informaticawetenschappen Leerplatform, een open-source leeromgeving speciaal ontwikkeld voor leerkrachten en leerlingen in de derde graad secundair onderwijs in Vlaanderen. Dit platform biedt interactieve cursussen voor het vak Informaticawetenschappen, met focus op programmeren in Python.
 
-Actief onderhouden. Gebruik direct of pas aan via je eigen fork/clone.
+Actief onderhouden. 
 
- ## Voor Leerkrachten
+Gebruik direct of pas aan via je eigen fork/clone.
+
+ ## Voor leerkrachten
  
- ### Hoe Gebruiken?
+ ### Hoe gebruiken?
  
- #### Optie 1: Direct Gebruiken (Geen Technische Kennis Vereist)
+ #### Optie 1: Direct gebruiken (Geen technische kennis vereist)
  
  De eenvoudigste manier om het platform te gebruiken is via onze gehoste versie:
  
@@ -68,7 +70,7 @@ Normale tekst
 
 ```
 
-# Code voorbeeld
+# Voorbeeld
 print("Hello World")
 ```
 
