@@ -1,8 +1,10 @@
- # Informaticawetenschappen Leerplatform
+# Informaticawetenschappen – Open‑source leerplatform (3e graad)
  
- ## Overzicht
+## Overzicht
  
- Welkom bij het Informaticawetenschappen Leerplatform, een open-source leeromgeving speciaal ontwikkeld voor leerkrachten en leerlingen in de derde graad secundair onderwijs in Vlaanderen. Dit platform biedt interactieve cursussen voor het vak Informaticawetenschappen, met focus op programmeren in Python.
+Welkom bij het Informaticawetenschappen Leerplatform, een open-source leeromgeving speciaal ontwikkeld voor leerkrachten en leerlingen in de derde graad secundair onderwijs in Vlaanderen. Dit platform biedt interactieve cursussen voor het vak Informaticawetenschappen, met focus op programmeren in Python.
+
+Actief onderhouden. Gebruik direct of pas aan via je eigen fork/clone.
 
  ## Voor Leerkrachten
  
@@ -16,115 +18,85 @@
  2. Deel deze link met uw leerlingen
  3. De leerlingen kunnen direct beginnen met de cursussen, quizzen en code-uitdagingen
  
- #### Optie 2: Aanpassen en Zelf Hosten (Enige Technische Kennis Vereist)
+ #### Optie 2: Aanpassen en zelf hosten (Fork aanbevolen)
 
-Als u de inhoud wilt aanpassen aan uw specifieke leerplan:
- 
- 1. **Fork de GitHub Repository**
-    - Ga naar [https://github.com/schuyten/inw-cursus](https://github.com/schuyten/inw-cursus)
-    - Klik op de "Fork" knop rechtsboven
- 
- 2. **Pas de Inhoud Aan**
-    - Alle cursusinhoud staat in de `content` map
-    - Elke cursus heeft een eigen submap (bijv. `5BCW` voor 5de jaar Biotechnologische en Chemische STEM-Wetenschappen)
-    - De hoofdstukken zijn geschreven in Markdown (.md bestanden)
-    - Bewerk deze bestanden om de inhoud aan te passen aan uw behoeften
- 
- 3. **Zelf Hosten**
- 
-    **Optie A: Vercel (Eenvoudigste)**
-    - Maak een gratis account aan op [Vercel](https://vercel.com)
-    - Klik op "New Project" en verbind met uw GitHub account
-    - Selecteer uw geforkte repository
-    - Klik op "Deploy"
-    - Vercel zal automatisch uw site bouwen en hosten
- 
-    **Optie B: Lokaal Draaien**
-    - Installeer [Node.js](https://nodejs.org/) (versie 14 of hoger)
-    - Open een terminal of command prompt
-    - Navigeer naar de map waar u het project wilt opslaan
-    - Voer de volgende commando's uit:
-      ```
-      git clone https://github.com/Schuyten/inw-cursus.git
-      cd informaticawetenschappen
-      npm install
-      npm run dev
-      ```
-    - Open een browser en ga naar `http://localhost:3000`
- 
- ### Cursusinhoud Aanpassen
- 
- De cursusinhoud is opgeslagen in Markdown-bestanden (.md) in de `content` map. U hoeft geen programmeerkennis te hebben om deze aan te passen:
- 
- 1. Navigeer naar de `content` map in uw geforkte repository
- 2. Kies de juiste cursusmap (bijv. `5BCW` voor 5de jaar Biotechnologische en Chemische STEM-Wetenschappen)
- 3. Open het hoofdstuk dat u wilt aanpassen (bijv. `chapter1_1.md`)
- 4. Klik op het potlood-icoon om te bewerken
- 5. Maak uw wijzigingen in de Markdown-tekst
- 6. Scroll naar beneden en klik op "Commit changes"
- 
- #### Markdown Basis
- 
- Markdown is een eenvoudige opmaaktaal:
- 
- ```
- # Hoofdstuktitel
- ## Subtitel
- 
- Normale tekst
- 
- **Vetgedrukte tekst**
- 
- *Schuingedrukte tekst*
- 
- - Lijstitem 1
- - Lijstitem 2
- 
- 1. Genummerd item 1
- 2. Genummerd item 2
- 
- [Link tekst](https://www.voorbeeld.be)
- 
- ![Afbeelding beschrijving](pad/naar/afbeelding.jpg)
- 
- ```
- 
- # Code voorbeeld
- print("Hello World")
- ```
- 
- ### Quizzen en Code-uitdagingen Toevoegen
- 
- Quizzen en code-uitdagingen worden gedefinieerd in het bestand `components/chapter-quiz.tsx`:
- 
- 1. Open dit bestand in uw geforkte repository
- 2. Zoek de `chapterContent` variabele
- 3. Voeg een nieuw item toe voor uw hoofdstuk, met quizvragen en code-uitdagingen
+Wil je de inhoud afstemmen op je schoolcontext of eigen leerplan?
+
+1. Fork deze repository: [https://github.com/Schuyten/inw-cursus](https://github.com/Schuyten/inw-cursus)
+2. Pas de inhoud aan in de map `content/`
+   - `content/wi` – wiskunde‑richtingen (algoritmen & Python)
+   - `content/bwe` – bedrijfswetenschappen (databanken/SQL/BI)
+   - `content/python` – generieke Python‑hoofdstukken
+3. Host je fork:
+   - Vercel (eenvoudigste): koppel je GitHub‑fork → Deploy → automatisch bij elke commit
+   - Of lokaal: Node.js 18+ → `npm install` → `npm run dev` → `http://localhost:3000`
+
+> Tip: Forken is beter dan enkel clonen omdat je zo upstream updates eenvoudig kan binnenhalen en je eigen versie op GitHub beheert. Clonen is prima voor lokaal testen.
+
+### Cursusinhoud Aanpassen
+
+De cursusinhoud is opgeslagen in Markdown‑bestanden (.md) in `content/`. U hoeft geen programmeerkennis te hebben om deze aan te passen:
+
+1. Navigeer naar `content/wi`, `content/bwe` of `content/python`
+2. Open het juiste hoofdstukbestand (bv. `chapter1_1.md`)
+3. Klik op het potlood‑icoon op GitHub om te bewerken
+4. Commit uw wijzigingen
+
+#### Markdown Basis
+
+Markdown is een eenvoudige opmaaktaal:
+
+```
+# Hoofdstuktitel
+## Subtitel
+
+Normale tekst
+
+**Vetgedrukte tekst**
+
+*Schuingedrukte tekst*
+
+- Lijstitem 1
+- Lijstitem 2
+
+1. Genummerd item 1
+2. Genummerd item 2
+
+[Link tekst](https://www.voorbeeld.be)
+
+![Afbeelding beschrijving](pad/naar/afbeelding.jpg)
+
+```
+
+# Code voorbeeld
+print("Hello World")
+```
+
+### Quizzen en Code‑uitdagingen Toevoegen
+
+Quizzen en code‑uitdagingen worden gedefinieerd in `components/chapter-quiz.tsx` en gemapt in `components/course-website.tsx` onder `chapterContent`.
  
  ## Functies van het Platform
  
  - **Interactieve Cursussen**: Markdown-gebaseerde lessen met syntax highlighting voor code
  - **Quizzen**: Test het begrip van de leerlingen met meerkeuzevragen
  - **Code-uitdagingen**: Laat leerlingen Python-code schrijven en test deze automatisch
- - **Prestatiebadges**: Motiveer leerlingen met badges voor voltooide uitdagingen
- - **Leaderboard**: Stimuleer gezonde competitie tussen leerlingen
  - **AI-assistent**: Leerlingen kunnen vragen stellen aan een AI-assistent
  
- ## Technische Details (Voor Gevorderde Gebruikers)
+ ## Technische Details
  
  Dit platform is gebouwd met:
- - **Next.js**: Een React framework voor webapplicaties
+ - **Next.js** (React + SSR)
  - **TypeScript**
- - **Tailwind CSS**: Voor styling
- - **Vercel**: Voor hosting en serverless functies
- 
- De code-uitdagingen worden geëvalueerd via een beveiligde API die Python-code veilig uitvoert en test.
+ - **Tailwind CSS**
+ - **Vercel** (hosting)
+
+De code‑uitdagingen worden geëvalueerd via een beveiligde API die Python‑code veilig uitvoert en test.
 
  ## Ondersteuning
  
  Heeft u vragen of loopt u tegen problemen aan? Neem contact op via:
  - GitHub Issues: [https://github.com/Schuyten/inw-cursus/issues](https://github.com/Schuyten/inw-cursus/issues)
- - E-mail: [support@informaticawetenschappen.com](mailto:support@informaticawetenschappen.com)
  
  ## Bijdragen
  
