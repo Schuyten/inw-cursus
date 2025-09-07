@@ -1,0 +1,62 @@
+{
+  "title": "Dictionaries",
+  "quiz": [
+    {
+      "question": "Wat is het belangrijkste verschil tussen een lijst en een dictionary in Python?",
+      "options": [
+        "Lijsten kunnen alleen getallen bevatten, dictionaries kunnen elk datatype bevatten",
+        "Lijsten worden benaderd via een numerieke index, dictionaries via een sleutel",
+        "Dictionaries zijn altijd sneller dan lijsten",
+        "Lijsten kunnen worden gesorteerd, dictionaries niet"
+      ],
+      "correctAnswer": 1
+    },
+    {
+      "question": "Welke van de volgende kan NIET worden gebruikt als sleutel in een dictionary?",
+      "options": [
+        "Een string",
+        "Een getal",
+        "Een lijst",
+        "Een tuple"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Wat gebeurt er als je een waarde toevoegt met een sleutel die al bestaat in de dictionary?",
+      "options": [
+        "Er wordt een KeyError gegenereerd",
+        "De nieuwe waarde wordt genegeerd",
+        "De oude waarde wordt overschreven",
+        "Er wordt een nieuwe dictionary gemaakt"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Welke methode gebruik je om een waarde op te halen uit een dictionary zonder een KeyError te riskeren als de sleutel niet bestaat?",
+      "options": [
+        "dictionary.find(key)",
+        "dictionary.search(key)",
+        "dictionary.get(key)",
+        "dictionary.fetch(key)"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Wat is de uitvoer van de volgende code?\n\nstudent = {'naam': 'Lobna', 'leeftijd': 17}\nprint(list(student.keys()))",
+      "options": [
+        "['naam', 'leeftijd']",
+        "['Lobna', 17]",
+        "{'naam': 'Lobna', 'leeftijd': 17}",
+        "['naam': 'Lobna', 'leeftijd': 17]"
+      ],
+      "correctAnswer": 0
+    }
+  ],
+  "codeChallenge": {
+    "initialCode": "# Maak een functie die een dictionary teruggeeft met \n# studenten als sleutels en hun leeftijden als waarden\n\ndef maak_leeftijd_dictionary():\n    # Gebruik deze gegevens\n    namen = [\"Anna\", \"Bram\", \"Chen\", \"Daan\", \"Emma\"]\n    leeftijden = [16, 17, 15, 16, 17]\n    \n    # Jouw code hier\n    \n    return student_leeftijden\n\n# Test je functie\nprint(maak_leeftijd_dictionary())",
+    "expectedOutput": "{'Anna': 16, 'Bram': 17, 'Chen': 15, 'Daan': 16, 'Emma': 17}",
+    "hint": "Begin met een lege dictionary",
+    "solution": "def maak_leeftijd_dictionary():\n    # Gebruik deze gegevens\n    namen = [\"Anna\", \"Bram\", \"Chen\", \"Daan\", \"Emma\"]\n    leeftijden = [16, 17, 15, 16, 17]\n    \n    # Methode 1: met indexen\n    student_leeftijden = {}\n    for i in range(len(namen)):\n        student_leeftijden[namen[i]] = leeftijden[i]\n    \n    return student_leeftijden\n\n# Test je functie\nprint(maak_leeftijd_dictionary())"
+  }
+}
+

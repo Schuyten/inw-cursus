@@ -56,7 +56,7 @@ export function Streak() {
   return (
     <div className="flex items-center gap-2 bg-orange-500 text-white px-3 py-1 rounded-full">
       <Flame className="w-5 h-5" />
-      <span className="font-bold">{currentStreak} dagen</span>
+      <span className="font-bold">{currentStreak} {currentStreak === 1 ? 'dag' : 'dagen'}</span>
     </div>
   );
 } 

@@ -1,96 +1,22 @@
 'use client'
 
 import { useState } from 'react';
+import quiz_4_4 from '@/content/quizzes/4_4.json';
 import { BookOpen, X } from 'lucide-react';
 import { Quiz } from './quiz';
 import { CodeChallenge } from './code-challenge';
 
-// Dictionary quiz questions
-const dictionaryQuizQuestions = [
-  {
-    question: "Wat is het belangrijkste verschil tussen een lijst en een dictionary in Python?",
-    options: [
-      "Lijsten kunnen alleen getallen bevatten, dictionaries kunnen elk datatype bevatten",
-      "Lijsten worden benaderd via een numerieke index, dictionaries via een sleutel",
-      "Dictionaries zijn altijd sneller dan lijsten",
-      "Lijsten kunnen worden gesorteerd, dictionaries niet"
-    ],
-    correctAnswer: 1
-  },
-  {
-    question: "Welke van de volgende kan NIET worden gebruikt als sleutel in een dictionary?",
-    options: [
-      "Een string",
-      "Een getal",
-      "Een lijst",
-      "Een tuple"
-    ],
-    correctAnswer: 2
-  },
-  {
-    question: "Wat gebeurt er als je een waarde toevoegt met een sleutel die al bestaat in de dictionary?",
-    options: [
-      "Er wordt een KeyError gegenereerd",
-      "De nieuwe waarde wordt genegeerd",
-      "De oude waarde wordt overschreven",
-      "Er wordt een nieuwe dictionary gemaakt"
-    ],
-    correctAnswer: 2
-  },
-  {
-    question: "Welke methode gebruik je om een waarde op te halen uit een dictionary zonder een KeyError te riskeren als de sleutel niet bestaat?",
-    options: [
-      "dictionary.find(key)",
-      "dictionary.search(key)",
-      "dictionary.get(key)",
-      "dictionary.fetch(key)"
-    ],
-    correctAnswer: 2
-  },
-  {
-    question: "Wat is de uitvoer van de volgende code?\n\nstudent = {'naam': 'Lobna', 'leeftijd': 17}\nprint(list(student.keys()))",
-    options: [
-      "['naam', 'leeftijd']",
-      "['Lobna', 17]",
-      "{'naam': 'Lobna', 'leeftijd': 17}",
-      "['naam': 'Lobna', 'leeftijd': 17]"
-    ],
-    correctAnswer: 0
+// External quiz registry (expandable)
+const quizRegistry: Record<string, {
+  title: string;
+  quiz: { question: string; options: string[]; correctAnswer: number }[];
+  codeChallenge: { initialCode: string; expectedOutput: string; hint: string; solution: string };
+}> = {
+  '4.4': quiz_4_4 as unknown as {
+    title: string;
+    quiz: { question: string; options: string[]; correctAnswer: number }[];
+    codeChallenge: { initialCode: string; expectedOutput: string; hint: string; solution: string };
   }
-];
-
-// Dictionary code challenge
-const dictionaryCodeChallenge = {
-  initialCode: `# Maak een functie die een dictionary teruggeeft met 
-# studenten als sleutels en hun leeftijden als waarden
-
-def maak_leeftijd_dictionary():
-    # Gebruik deze gegevens
-    namen = ["Anna", "Bram", "Chen", "Daan", "Emma"]
-    leeftijden = [16, 17, 15, 16, 17]
-    
-    # Jouw code hier
-    
-    return student_leeftijden
-
-# Test je functie
-print(maak_leeftijd_dictionary())`,
-  expectedOutput: "{'Anna': 16, 'Bram': 17, 'Chen': 15, 'Daan': 16, 'Emma': 17}",
-  hint: "Begin met een lege dictionary",
-  solution: `def maak_leeftijd_dictionary():
-    # Gebruik deze gegevens
-    namen = ["Anna", "Bram", "Chen", "Daan", "Emma"]
-    leeftijden = [16, 17, 15, 16, 17]
-    
-    # Methode 1: met indexen
-    student_leeftijden = {}
-    for i in range(len(namen)):
-        student_leeftijden[namen[i]] = leeftijden[i]
-    
-    return student_leeftijden
-
-# Test je functie
-print(maak_leeftijd_dictionary())`
 };
 
 // Add a type for the chapter content
@@ -111,20 +37,10 @@ type ChapterContentType = {
   };
 };
 
-// Map of chapter IDs to their quizzes and challenges
-const chapterContent: ChapterContentType = {
-  '4_4': {
-    title: 'Dictionaries',
-    quiz: dictionaryQuizQuestions,
-    codeChallenge: dictionaryCodeChallenge
-  },
-  '4.4': {
-    title: 'Dictionaries',
-    quiz: dictionaryQuizQuestions,
-    codeChallenge: dictionaryCodeChallenge
-  }
-  // Add more chapters as needed
-};
+// Map of chapter IDs to their quizzes and challenges (externalized)
+const chapterContent: ChapterContentType = Object.fromEntries(
+  Object.entries(quizRegistry).map(([key, value]) => [key, value])
+);
 
 export function ChapterQuiz({ 
   chapterId,

@@ -53,6 +53,7 @@ import chapter4_3_python from '../content/python/chapter4_3.md'
 import chapter4_4_python from '../content/python/chapter4_4.md'
 import chapter4_5_python from '../content/python/chapter4_5.md'
 import chapter4_6_python from '../content/python/chapter4_6.md'
+import chapter4_7_python from '../content/python/chapter4_7.md'
 import chapter5_1_python from '../content/python/chapter5_1.md'
 import chapter5_2_python from '../content/python/chapter5_2.md'
 import chapter6_1_python from '../content/python/chapter6_1.md'
@@ -64,8 +65,6 @@ import BigOComplexityChart from './big-o-chart';
 import { useChat } from 'ai/react'
 import { MemoizedMarkdown } from './memoized-markdown'
 import { Streak } from './streak';
-import { Achievements } from './achievements';
-import { Leaderboard } from './leaderboard';
 import { Quiz } from './quiz';
 import { CodeChallenge } from './code-challenge';
 import { ChapterQuiz } from './chapter-quiz';
@@ -115,6 +114,7 @@ const courses = [
           { id: '4.4', title: "4.4 Dictionaries (Woordenboeken)" },
           { id: '4.5', title: "4.5 While Loops" },
           { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
+          { id: '4.7', title: "4.7 Quiz: Dictionaries" },
         ]
       },
       {
@@ -181,6 +181,7 @@ const courses = [
           { id: '4.4', title: "4.4 Dictionaries (Woordenboeken)" },
           { id: '4.5', title: "4.5 While Loops" },
           { id: '4.6', title: "4.6 Oefeningen: Dictionaries en While Loops" },
+          { id: '4.7', title: "4.7 Quiz: Dictionaries" },
         ]
       },
       {
@@ -443,6 +444,7 @@ const chapterContent = {
     '4.2': chapter4_2_python,
     '4.3': chapter4_3_python,
     '4.4': chapter4_4_wi,
+    '4.7': chapter4_7_python,
     '4.5': chapter4_5_python,
     '4.6': chapter4_6_python,
     '5.1': chapter5_1_python,
@@ -468,6 +470,7 @@ const chapterContent = {
     '4.2': chapter4_2_python,
     '4.3': chapter4_3_python,
     '4.4': chapter4_4_python,
+    '4.7': chapter4_7_python,
     '4.5': chapter4_5_python,
     '4.6': chapter4_6_python,
     '5.1': chapter5_1_python,
@@ -499,10 +502,12 @@ const chapterContent = {
 
 function ChatInterface({ 
   darkMode, 
-  currentContent 
+  currentContent,
+  assistantName = 'Assistent'
 }: { 
   darkMode: boolean;
   currentContent?: string;
+  assistantName?: string;
 }) {
   const { messages, input, handleInputChange, handleSubmit } = useChat({
     experimental_throttle: 50,
@@ -552,7 +557,7 @@ function ChatInterface({
                 `}>
                   {message.role === 'assistant' && (
                     <span className="text-sm text-gray-500 dark:text-gray-400 ml-3">
-                      Meneer Schuyten
+                      {assistantName}
                     </span>
                   )}
                   <div className={`
@@ -794,9 +799,16 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
               {selectedCourse ? courses.find(c => c.id === selectedCourse)?.title : 'Informaticawetenschappen'}
             </h1>
           </div>
-          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white">
-            {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-4">
+            {selectedCourse && (
+              <div className="hidden sm:block">
+                <Streak />
+              </div>
+            )}
+            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 border border-black dark:border-white">
+              {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+            </button>
+          </div>
         </header>
         
         {!selectedCourse ? (
@@ -947,6 +959,18 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
                   },
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   bigochart: ({node, ...props}: { node?: unknown, [key: string]: any }) => <BigOComplexityChart {...props} />,
+                  chapterquiz: ({ node, ...props }: { node?: unknown } & { [key: string]: unknown }) => {
+                    if (!selectedCourse) return null;
+                    const attrFor = props && (typeof props['for'] === 'string' ? (props['for'] as string)
+                      : (typeof props['htmlFor'] === 'string' ? (props['htmlFor'] as string) : undefined));
+                    const chapterIdToUse = attrFor ?? selectedSubchapter;
+                    return (
+                      <ChapterQuiz
+                        chapterId={String(chapterIdToUse)}
+                        currentCourse={selectedCourse}
+                      />
+                    );
+                  },
                 } as ComponentPropsWithoutRef<typeof ReactMarkdown>['components']}
                 rehypePlugins={[rehypeRaw]}
               >
@@ -978,46 +1002,25 @@ export function CourseWebsite({ searchParams }: { searchParams: ReadonlyURLSearc
         )}
       </div>
       
-      <footer className="bg-white dark:bg-black p-4 text-center text-sm border-t-2 border-black dark:border-white">
+      <footer className="bg-white dark:bg-black text-black dark:text-white p-4 text-center text-sm border-t-2 border-black dark:border-white">
         <p>&copy; 2025 INW - door Matthias Schuyten. Alle rechten voorbehouden.</p>
       </footer>
       
-      <ChatInterface 
-        darkMode={darkMode} 
-        currentContent={
-          selectedCourse && selectedSubchapter 
-            ? chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]]
-            : undefined
-        }
-      />
-
-      {selectedCourse && (
-        <div className="bg-white dark:bg-gray-800 p-4 mb-4 rounded-lg shadow-md border-2 border-black dark:border-white">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <ProgressBar 
-              currentCourse={selectedCourse} 
-              currentChapter={selectedChapter} 
-              currentSubchapter={selectedSubchapter} 
-            />
-            
-            <div className="flex items-center gap-3">
-              <Streak />
-              <Achievements currentCourse={selectedCourse} />
-              <Leaderboard />
-            </div>
-          </div>
-        </div>
+      {process.env.NEXT_PUBLIC_ENABLE_CHAT === 'true' && (
+        <ChatInterface 
+          darkMode={darkMode} 
+          currentContent={
+            selectedCourse && selectedSubchapter 
+              ? chapterContent[selectedCourse as keyof typeof chapterContent]?.[selectedSubchapter as keyof (typeof chapterContent)[keyof typeof chapterContent]]
+              : undefined
+          }
+          assistantName={process.env.NEXT_PUBLIC_CHAT_ASSISTANT_NAME || 'Assistent'}
+        />
       )}
 
-      {selectedChapter && selectedSubchapter && (
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-black dark:border-white">
-          
-          <ChapterQuiz 
-            chapterId={selectedSubchapter} 
-            currentCourse={selectedCourse!} 
-          />
-        </div>
-      )}
+      
+
+      
     </div>
   )
 }
