@@ -20,9 +20,9 @@ Een relationele database is opgebouwd uit enkele fundamentele componenten:
 
 *   **Gegevenstypen (Data Types):** Elke kolom heeft een specifiek gegevenstype dat bepaalt welk soort data erin kan worden opgeslagen (bv. tekst, getal, datum). Dit helpt de gegevensintegriteit te bewaren.
 
-Hieronder zie je een visuele voorstelling van een tabel:
+De kracht van een relationele database zit in de **relaties** tussen die tabellen. Hier is een eenvoudig voorbeeld van hoe de tabellen `Klanten`, `Bestellingen` en `Producten` met elkaar verbonden kunnen zijn:
 
-![Database Table Structure](https://i.imgur.com/2cK3zJq.png)
+![ERD Voorbeeld](/images/bwe/database-erd-2-1.png)
 
 ### 2.1.3 Databases in het dagelijks leven
 

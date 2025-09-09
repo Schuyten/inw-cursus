@@ -10,7 +10,7 @@ Een ERD bestaat uit drie hoofdonderdelen:
 2.  **Attributen:** Worden weergegeven als **ellipsen** (of ovalen) die verbonden zijn met hun entiteit. Het attribuut dat als primaire sleutel dient, wordt vaak onderstreept.
 3.  **Relaties:** Worden weergegeven als **ruiten** (diamanten) die twee entiteiten met elkaar verbinden. De naam van de relatie wordt in de ruit geplaatst.
 
-![Componenten van een ERD](https://i.imgur.com/8EGEsWB.png)
+![Componenten van een ERD](/images/bwe/componenten-3-2.png)
 
 ### 3.2.2 Cardinaliteit: De aard van de relatie specificeren
 
@@ -26,17 +26,17 @@ Deze worden gecombineerd om de minimum en maximum cardinaliteit aan te geven. Ee
 
 **De belangrijkste relaties in kraaienpoot-notatie:**
 
-*   **Eén-op-één (1:1):**
-    *   `--| |---` (Eén entiteit is verbonden met precies één andere)
+*   **Eén-op-één (1:1):** Eén entiteit is verbonden met precies één andere.
     *   *Voorbeeld:* Een `Werknemer` heeft één `Personeelsdossier`.
+    ![Eén-op-één relatie](/images/bwe/one-to-one-3-2.png)
 
-*   **Eén-op-veel (1:N):**
-    *   `--| |-<--` (Eén entiteit is verbonden met vele andere)
+*   **Eén-op-veel (1:N):** Eén entiteit is verbonden met vele andere.
     *   *Voorbeeld:* Een `Klant` kan vele `Bestellingen` plaatsen.
+    ![Eén-op-veel relatie](/images/bwe/one-to-many-3-2.png)
 
-*   **Veel-op-veel (N:M):**
-    *   `-->|-|<-` (Vele entiteiten zijn verbonden met vele andere)
+*   **Veel-op-veel (N:M):** Vele entiteiten zijn verbonden met vele andere. Dit wordt in de praktijk opgelost met een tussentabel.
     *   *Voorbeeld:* Een `Student` volgt vele `Vakken`, en een `Vak` wordt door vele `Studenten` gevolgd.
+    ![Veel-op-veel relatie](/images/bwe/many-to-many-3-2.png)
 
 ### 3.2.3 ERD voor TechTrends BV
 
@@ -58,7 +58,7 @@ Deze nieuwe entiteit `Bestelregel` krijgt een één-op-veel relatie met zowel `B
 **Stap 3: Teken het volledige ERD met cardinaliteit**
 Nu tekenen we het finale diagram, inclusief de kraaienpoot-notatie om de cardinaliteit aan te duiden.
 
-![ERD voor TechTrends BV](https://i.imgur.com/u1B9G5p.png)
+![ERD voor TechTrends BV](/images/bwe/techtrends-erd-3-2.png)
 
 **Analyse van het diagram:**
 *   Een `Klant` kan nul of meer (`O<`) `Bestellingen` plaatsen. Een `Bestelling` hoort bij precies één (`||`) `Klant`.

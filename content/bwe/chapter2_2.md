@@ -60,7 +60,7 @@ De verbindingen die door referentiële sleutels worden gelegd, kunnen verschille
 3.  **Veel-op-veel-relatie (Many-to-Many):** Eén rij in Tabel A kan verbonden zijn met vele rijen in Tabel B, en één rij in Tabel B kan ook verbonden zijn met vele rijen in Tabel A. Om dit te realiseren in een database, is een derde tabel nodig, een **junctietabel** of **tussentabel**.
     *   **Voorbeeld:** Een student kan *veel* vakken volgen, en een vak kan door *veel* studenten worden gevolgd. Een tussentabel `Inschrijvingen` koppelt studenten aan vakken.
 
-![Database Relationships](https://i.imgur.com/83sJ8V2.png)
+![Database Relationships](/images/bwe/relaties-2-2.png)
 
 ### 2.2.4 Referentiële Integriteit
 
