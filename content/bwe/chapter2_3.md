@@ -1,108 +1,65 @@
-# 2.3 Celformattering in Excel
+# 2.3 Waarom databases gebruiken?
 
-In deze les gaan we dieper in op het formatteren van cellen in Excel, waarbij we gebruik maken van een realistisch dataset van het fictieve e-commerce bedrijf TechTrends BV. We zullen leren hoe we gegevens kunnen presenteren op een manier die relevant is voor bedrijfsanalyse en besluitvorming.
+We hebben gezien dat Excel zijn beperkingen heeft en dat databases een gestructureerde manier bieden om data op te slaan. Maar wat zijn nu de concrete, doorslaggevende voordelen van een database in een bedrijfsomgeving? Dit hoofdstuk focust op drie kernconcepten die de superieure kracht van databases aantonen: gegevensintegriteit, -consistentie en het vermijden van redundantie.
 
-## 2.3.1 Het Dataset
+### 2.3.1 Gegevensredundantie: Het probleem van dubbele data
 
-Open het bestand 'TechTrends_Verkopen_2023.xlsx'. Dit bestand bevat verkoopgegevens van TechTrends BV voor het jaar 2023. Laten we eerst de structuur van het dataset bekijken:
+**Gegevensredundantie** betekent dat dezelfde informatie onnodig op meerdere plaatsen wordt opgeslagen. Dit is een veelvoorkomend probleem in spreadsheets.
 
-- Order_ID: Uniek identificatienummer voor elke bestelling
-- Datum: De datum van de verkoop
-- Product_Categorie: Het type product dat is verkocht
-- Verkoopprijs: De prijs per eenheid van het verkochte product
-- Aantal: Het aantal verkochte eenheden in deze bestelling
-- Klant_Type: Of de klant een particuliere of zakelijke klant is
-- Betaalmethode: De gebruikte betaalmethode
-- Klanttevredenheid: Een score van 1-5 die de tevredenheid van de klant aangeeft
-- Totale_Verkoopwaarde: De totale waarde van de bestelling
+**Voorbeeld in Excel:**
+Stel je een bedrijf voor dat klantgegevens bijhoudt in een Excel-sheet. Voor elke bestelling wordt de naam en het adres van de klant opnieuw ingetypt.
 
-## 2.3.2 Basisformattering
+| Bestelling ID | Besteldatum | Klantnaam     | Adres             | Product |
+|---------------|-------------|---------------|-------------------|---------|
+| 101           | 01-03-2024  | Jan Janssen   | Bakkerstraat 12   | Laptop  |
+| 102           | 05-03-2024  | Anna de Vries | Kerkplein 9       | Muis    |
+| 103           | 12-03-2024  | Jan Janssen   | Bakkerstraat 12   | Monitor |
+| 104           | 15-03-2024  | Jan Jansen    | Bakkerstraat 12   | Laptop  |
 
-Laten we beginnen met het verbeteren van de leesbaarheid van ons dataset:
+**De problemen:**
+1.  **Verspilde opslagruimte:** De naam en het adres van Jan Janssen worden meerdere keren opgeslagen. Bij duizenden bestellingen wordt dit een aanzienlijke hoeveelheid onnodige data.
+2.  **Inconsistentie:** In de laatste rij staat "Jan Jansen" in plaats van "Jan Janssen". Is dit een typfout of een andere klant? Deze onduidelijkheid maakt de data onbetrouwbaar.
+3.  **Update-anomalie:** Als Jan Janssen verhuist, moet zijn adres in *elke* rij worden aangepast. Als je er één vergeet, heb je inconsistente data.
 
-1. **Kolomkoppen opmaken**:
-   - Selecteer rij 1 (de kolomkoppen) door op het cijfer 1 links van de rij te klikken.
-   - Ga naar het tabblad 'Start' in het lint bovenaan.
-   - Klik op de knop 'Vet' (B) in de groep 'Lettertype' om de tekst vet te maken.
-   - Klik op de pijl naast 'Opvulkleur' en kies een lichtblauwe kleur.
-   - In de groep 'Uitlijning', klik op de knoppen voor 'Horizontaal centreren' en 'Verticaal centreren'.
+**De database-oplossing:**
+In een database splitsen we dit op in twee tabellen (`Klanten` en `Bestellingen`), waardoor de klantgegevens maar één keer worden opgeslagen.
 
-2. **Randen toevoegen**:
-   - Selecteer alle cellen met data door op de linkerbovenhoek van het werkblad te klikken (waar rij- en kolomkoppen elkaar kruisen).
-   - Ga naar het tabblad 'Start' en zoek de knop 'Randen' in de groep 'Lettertype'.
-   - Klik op de pijl naast 'Randen' en kies 'Alle randen'.
+**Klanten Tabel**
+| **klant_id** | naam          | adres           |
+|--------------|---------------|-----------------|
+| 1            | Jan Janssen   | Bakkerstraat 12 |
+| 2            | Anna de Vries | Kerkplein 9     |
 
-**Oefening 1**: 
-Pas de opmaak van de tabel aan zoals hierboven beschreven.
+**Bestellingen Tabel**
+| **Bestelling ID** | Besteldatum | **klant_id** | Product |
+|-----------------|-------------|--------------|---------|
+| 101             | 01-03-2024  | 1            | Laptop  |
+| 102             | 05-03-2024  | 2            | Muis    |
+| 103             | 12-03-2024  | 1            | Monitor |
 
-## 2.3.3 Getalnotaties
+Nu is er geen redundantie meer. Als Jan Janssen verhuist, hoeft zijn adres maar op één plek te worden aangepast.
 
-Nu gaan we de getalnotaties aanpassen om de data beter leesbaar te maken:
+### 2.3.2 Gegevensconsistentie: Eén versie van de waarheid
 
-1. **Valuta-opmaak**:
-   - Selecteer de kolommen 'Verkoopprijs' en 'Totale_Verkoopwaarde' door op de kolomletters te klikken terwijl je de Ctrl-toets ingedrukt houdt.
-   - Ga naar het tabblad 'Start' en zoek de groep 'Getal'.
-   - Klik op de pijl naast 'Valuta' en kies de €-notatie.
+**Gegevensconsistentie** zorgt ervoor dat data overal in de database betrouwbaar en eenduidig is. Het vermijden van redundantie is de eerste stap naar consistentie. Referentiële integriteit (besproken in 2.2) is een ander krachtig mechanisme.
 
-2. **Datumnotatie**:
-   - Selecteer de kolom 'Datum'.
-   - In de groep 'Getal', klik op de pijl naast 'Korte datumnotatie' en kies een notatie die dag, maand en jaar weergeeft.
+Consistentie betekent dat als we een `klant_id` opzoeken in de `Bestellingen`-tabel, we er zeker van kunnen zijn dat er een corresponderende en correcte klant bestaat in de `Klanten`-tabel. Een database dwingt dit af; Excel niet.
 
-3. **Percentages**:
-   - Voeg een nieuwe kolom 'Winstmarge' toe naast 'Totale_Verkoopwaarde' door rechts te klikken op de kolomkop en 'Invoegen' te kiezen.
-   - In de eerste cel van deze nieuwe kolom, typ de formule: =20%*[cel met Totale_Verkoopwaarde]
-   - Sleep de formule naar beneden om deze voor alle rijen toe te passen.
-   - Selecteer de hele kolom en klik op het %-teken in de groep 'Getal' om de percentagenotatie toe te passen.
+### 2.3.3 Gegevensintegriteit: De kwaliteit van je data
 
-**Oefening 2**:
-Voer de bovenstaande formattering uit en bereken de winstmarge.
+**Gegevensintegriteit** is de overkoepelende term voor de nauwkeurigheid, volledigheid en betrouwbaarheid van gegevens. Databases gebruiken verschillende middelen om de integriteit te waarborgen:
 
-## 2.3.4 Voorwaardelijke opmaak
+*   **Type-integriteit (Data Types):** Een kolom gedefinieerd als `DATUM` zal geen tekst accepteren. Een kolom voor `AANTAL` zal geen "vijf" als tekst accepteren, alleen het getal 5. Dit voorkomt invoerfouten.
+*   **Entiteitsintegriteit (Primary Keys):** Door een unieke primaire sleutel te eisen, zorgt de database ervoor dat elke rij uniek identificeerbaar is en er geen dubbele records zijn.
+*   **Referentiële integriteit (Foreign Keys):** Garandeert dat relaties tussen tabellen geldig zijn. Je kunt geen bestelling koppelen aan een niet-bestaande klant.
+*   **Bedrijfsregels (Constraints):** Je kunt extra regels definiëren. Bijvoorbeeld: de `prijs` van een product moet altijd groter zijn dan 0, of een `kortingspercentage` mag niet hoger zijn dan 50%.
 
-Voorwaardelijke opmaak kan helpen om snel inzichten te krijgen in de data:
+### Samenvatting: Database vs. Excel
 
-1. **Klanttevredenheid visualiseren**:
-   - Selecteer de kolom 'Klanttevredenheid'.
-   - Ga naar het tabblad 'Start' en klik op 'Voorwaardelijke opmaak' in de groep 'Stijlen'.
-   - Kies 'Regels voor markeren van cellen' > 'Groter dan' en vul 3 in. Kies groen als opmaak.
-   - Herhaal dit proces voor 'Kleiner dan of gelijk aan 2' (rood) en 'Gelijk aan 3' (geel).
+| Kenmerk     | Excel (Spreadsheet)                                     | Relationele Database                             |
+|-------------|---------------------------------------------------------|--------------------------------------------------|
+| **Redundantie** | Hoog risico, data wordt vaak gekopieerd en geplakt.     | Laag, door normalisatie en relaties.             |
+| **Consistentie**| Moeilijk te handhaven, risico op meerdere 'waarheden'. | Hoog, afgedwongen door de databasestructuur.     |
+| **Integriteit** | Beperkt, afhankelijk van de discipline van de gebruiker. | Hoog, afgedwongen door datatypes, sleutels en regels. |
 
-2. **Hoge verkoopwaarden markeren**:
-   - Selecteer de kolom 'Totale_Verkoopwaarde'.
-   - Ga naar 'Voorwaardelijke opmaak' > 'Regels voor markeren van cellen' > 'Groter dan'.
-   - Vul 1000 in en kies een lichtgroene opmaak.
-
-**Oefening 3**:
-Pas de voorwaardelijke opmaak toe zoals hierboven beschreven.
-
-## 2.3.5 Aangepaste getalnotaties
-
-Voor meer geavanceerde presentatie kunnen we aangepaste getalnotaties gebruiken:
-
-1. **Aangepaste productcategorie-weergave**:
-   - Selecteer de kolom 'Product_Categorie'.
-   - Klik met de rechtermuisknop en kies 'Celeigenschappen'.
-   - Ga naar het tabblad 'Getal' en kies 'Aangepast'.
-   - In het veld 'Type', voer in: "Categorie: "@
-   
-2. **Klanttevredenheid met sterren**:
-   - Selecteer de kolom 'Klanttevredenheid'.
-   - Ga naar 'Celeigenschappen' > 'Getal' > 'Aangepast'.
-   - In het veld 'Type', voer in: [=1]"★☆☆☆☆";[=2]"★★☆☆☆";[=3]"★★★☆☆";[=4]"★★★★☆";[=5]"★★★★★"
-
-**Oefening 4**:
-Pas deze aangepaste getalnotaties toe op de relevante kolommen.
-
-## 2.3.6 Celstijlen en thema's
-
-Tot slot kunnen we de algehele look van ons werkblad verbeteren:
-
-1. Selecteer alle data en ga naar het tabblad 'Start' > 'Opmaken als tabel'. Kies een stijl die je aantrekkelijk vindt.
-2. Ga naar het tabblad 'Pagina-indeling' > 'Thema's' en experimenteer met verschillende opties.
-
-**Oefening 5**:
-Pas een tabelstijl toe en kies een thema dat past bij de professionele uitstraling van TechTrends BV.
-
-## Conclusie
-
-In deze les heb je geleerd hoe je een realistisch bedrijfsdataset kan formatteren om het leesbaarder en informatiever te maken. Deze vaardigheden zijn cruciaal voor het presenteren van data in een bedrijfscontext en vormen de basis voor verdere analyse en visualisatie, die we in komende lessen zullen behandelen.
+Door deze drie problemen—redundantie, inconsistentie en gebrek aan integriteit—effectief aan te pakken, bieden databases een fundament voor betrouwbare en schaalbare dataoplossingen die ver boven de mogelijkheden van een spreadsheet uitstijgen.

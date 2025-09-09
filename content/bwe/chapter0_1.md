@@ -1,4 +1,4 @@
-# Introductie: Relationele Databanken en Big Data
+# 0.1 Welkom bij de cursus
 
 Welkom bij de cursus Relationele Databanken en Big Data! In deze cursus leer je de fundamentele concepten van gegevensopslag- en analyse, beginnend met eenvoudige spreadsheets en eindigend met complexe big data-systemen.
 
@@ -25,14 +25,16 @@ Na het voltooien van deze cursus zou je in staat moeten zijn om:
 
 ## Cursusstructuur
 
-We beginnen met de basisprincipes van gegevensorganisatie in Excel en bouwen geleidelijk op naar complexere concepten:
+Deze cursus is opgebouwd uit 8 hoofdstukken die je stap voor stap meenemen van de basis naar geavanceerde concepten:
 
-1. Introductie tot Tabellen en Gegevensorganisatie met Excel
-2. Overgang naar Relationele Databanken
-3. Ontwerp en Implementatie van een Relationele Databank
-4. Bevragen en Analyseren van een Relationele Databank
-5. Big Data en Datawarehousing
-6. Project en Toepassingen
+1.  **Gegevens Organiseren met Spreadsheets:** We beginnen met de basis in Excel om een gevoel te krijgen voor gestructureerde data.
+2.  **De Wereld van Databases:** We maken de overstap naar relationele databases en leren de fundamentele bouwstenen kennen.
+3.  **Databasemodellering (ERD & Normalisatie):** Je leert hoe je een solide 'blauwdruk' voor een database ontwerpt.
+4.  **SQL Deel 1: Databases Creëren en Bevragen:** Je leert de taal van databases spreken om structuren aan te maken en data op te vragen.
+5.  **SQL Deel 2: Data Manipuleren en Combineren:** We duiken dieper in SQL om data te wijzigen en te combineren uit meerdere tabellen.
+6.  **Introductie tot Big Data:** We verkennen de wereld van zeer grote en complexe datasets.
+7.  **Data Warehousing en Business Intelligence:** Je leert hoe bedrijven data voorbereiden en visualiseren voor analyse.
+8.  **Eindproject:** Je past alle geleerde vaardigheden toe in een realistische casestudy.
 
 ## Kernconcepten
 
@@ -46,14 +48,3 @@ Tijdens deze cursus zullen we de volgende kernconcepten behandelen:
 - Data-analyse- en visualisatie
 
 We zullen deze concepten toepassen op praktische probleemstellingen, waarbij we leren hoe we efficiënte en schaalbare oplossingen kunnen ontwerpen voor gegevensbeheer en -analyse.
-
-Hier is alvast een eenvoudig voorbeeld van een SQL-query:
-
-```sql
-SELECT naam, leeftijd
-FROM studenten
-WHERE studierichting = 'Bedrijfswetenschappen'
-ORDER BY leeftijd DESC;
-```
-
-Deze query selecteert de naam en leeftijd van de leerlingen bedrijfswetenschappen, gesorteerd op leeftijd van oud naar jong. Gedurende de cursus zul je leren hoe je zulke query's kunt schrijven en begrijpen, en hoe je ze kunt gebruiken om waardevolle inzichten uit je gegevens te halen.

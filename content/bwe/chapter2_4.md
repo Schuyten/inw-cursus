@@ -1,68 +1,84 @@
-# 2.4 Excel Oefeningen: Toepassing van Basisvaardigheden
+## Hoofdstuk 2.4: Databases in de praktijk: voorbeelden
 
-In dit hoofdstuk gaan we de kennis die je hebt opgedaan in de voorgaande lessen toepassen op een nieuwe dataset. We zullen werken met gegevens van TechTrends BV's voorraad- en verkoopbeheer voor het jaar 2023.
+De theorie over databases wordt pas echt duidelijk wanneer we zien hoe ze in de praktijk worden toegepast. In dit hoofdstuk bekijken we concrete voorbeelden van hoe een typisch bedrijf—een webshop genaamd "TechTrends BV"—zijn gegevens zou structureren in een relationele database.
 
-## 2.4.1 De Dataset
+### De Datasets voor TechTrends BV
 
-Open het bestand 'TechTrends_Voorraad_2023.xlsx'. Dit bestand bevat de volgende kolommen:
-- Datum: De datum van de verkoop
-- Product: Het verkochte product
-- Leverancier: De leverancier van het product
-- Inkoopprijs: De prijs waarvoor TechTrends het product heeft ingekocht
-- Verkoopprijs: De prijs waarvoor TechTrends het product heeft verkocht
-- Aantal_Verkocht: Het aantal verkochte eenheden
-- Vestiging: De vestiging waar de verkoop plaatsvond
+Voor de komende hoofdstukken over SQL gebruiken we een set van vier CSV-bestanden die de database van TechTrends BV voorstellen. Je kunt ze hier downloaden om de data te importeren in een database-tool.
 
-## 2.4.2 Basisformattering en Gegevensorganisatie
+- [Download techtrends_klanten.csv](/downloads/bwe/techtrends_klanten.csv)
+- [Download techtrends_producten.csv](/downloads/bwe/techtrends_producten.csv)
+- [Download techtrends_bestellingen.csv](/downloads/bwe/techtrends_bestellingen.csv)
+- [Download techtrends_bestelregels.csv](/downloads/bwe/techtrends_bestelregels.csv)
 
-**Oefening 1**: 
-1. Pas basisformattering toe op de tabel:
-   - Maak de kolomkoppen vet en geef ze een lichtblauwe achtergrond.
-   - Voeg randen toe aan alle cellen met data.
-   - Pas de juiste getalnotaties toe (valuta voor prijzen, gehele getallen voor Aantal_Verkocht, datumnotatie voor Datum).
+### 2.4.1 Casestudy: TechTrends BV
 
-2. Sorteer de data op Datum (oudste naar nieuwste) en dan op Product (alfabetisch).
+TechTrends BV is een online retailer die elektronica verkoopt. Om hun bedrijfsvoering efficiënt te beheren, hebben ze een database nodig die informatie bijhoudt over hun klanten, de producten die ze verkopen en de bestellingen die geplaatst worden.
 
-## 2.4.3 Berekeningen en Functies
+Een slechte aanpak zou zijn om alles in één gigantische tabel te stoppen, zoals we in het vorige hoofdstuk zagen. Een goede database-ontwerper splitst de informatie op in logische, samenhangende tabellen.
 
-**Oefening 2**:
-1. Voeg een kolom 'Winst' toe en bereken de winst per verkoop (Verkoopprijs - Inkoopprijs) * Aantal_Verkocht.
-2. Gebruik de SOM-functie om de totale winst te berekenen.
-3. Gebruik de GEMIDDELDE-functie om de gemiddelde verkoopprijs per product te berekenen.
-4. Gebruik de MAX- en MIN-functies om de hoogste en laagste winst per verkoop te vinden.
+### 2.4.2 De kerntabellen van TechTrends BV
 
-## 2.4.4 Voorwaardelijke Opmaak
+Hieronder staan de drie belangrijkste tabellen die de basis vormen van de webshop-database:
 
-**Oefening 3**:
-1. Pas voorwaardelijke opmaak toe op de 'Winst' kolom:
-   - Groen voor winst boven €1000
-   - Rood voor verlies (negatieve winst)
-   - Geel voor winst tussen €0 en €1000
-2. Gebruik kleurenschalen om de 'Aantal_Verkocht' kolom visueel weer te geven.
+**1. Klanten Tabel (`Klanten`)**
+Deze tabel bevat alle informatie die specifiek is voor een klant, en niets anders.
 
-## 2.4.5 Filteren en Sorteren
+| **klant_id (PK)** | voornaam | achternaam | email | aanmaak_datum |
+|---|---|---|---|---|
+| 1 | Lotte | Peeters | lotte.peeters@example.com | 2024-01-15 |
+| 2 | Daan | Mertens | daan.mertens@example.com | 2024-01-20 |
+| 3 | Chloé | Dubois | chloe.dubois@example.com| 2024-02-10 |
 
-**Oefening 4**:
-1. Filter de data om alleen verkopen in Amsterdam en Rotterdam te tonen.
-2. Sorteer deze gefilterde data op 'Verkoopprijs' van hoog naar laag.
-3. Gebruik vervolgens een aangepast filter om alleen producten te tonen die meer dan 20 keer zijn verkocht.
+*   **Primaire Sleutel (PK):** `klant_id` identificeert elke klant uniek.
 
-## 2.4.6 Geavanceerde Functies
+**2. Producten Tabel (`Producten`)**
+Deze tabel bevat alle informatie over de producten die TechTrends verkoopt.
 
-**Oefening 5**:
-1. Gebruik de ALS-functie om een nieuwe kolom 'Prestatie' te maken:
-   - "Goed" als de winst meer dan 30% van de inkoopprijs is
-   - "Gemiddeld" als de winst tussen 10% en 30% van de inkoopprijs is
-   - "Slecht" als de winst minder dan 10% van de inkoopprijs is
-2. Gebruik de VERTICAAL.ZOEKEN-functie om een aparte tabel te maken met de best presterende producten (hoogste totale winst) voor elke vestiging.
+| **product_id (PK)** | productnaam | beschrijving | prijs | voorraad |
+|---|---|---|---|---|
+| 101 | Laptop Pro | Krachtige laptop... | 1200.00 | 50 |
+| 102 | Draadloze Muis | Ergonomische muis...| 75.50 | 150 |
+| 103 | Mechanisch Toetsenbord | Voor de veeleisende... | 180.00 | 75 |
+| 104 | 4K Monitor | Haarscherp beeld... | 450.00 | 40 |
 
-## 2.4.7 Celverwijzingen en Autofill
+*   **Primaire Sleutel (PK):** `product_id` identificeert elk product uniek.
 
-**Oefening 6**:
-1. Maak een nieuwe kolom 'Winstmarge' en bereken deze als (Winst / (Inkoopprijs * Aantal_Verkocht)) * 100%.
-2. Gebruik absolute celverwijzingen om een kolom 'Verschil met Gemiddelde Prijs' te maken, die het verschil berekent tussen de verkoopprijs van elk product en de gemiddelde verkoopprijs van alle producten.
-3. Gebruik de Autofill-functie om deze formules naar alle rijen te kopiëren.
+**3. Bestellingen Tabel (`Bestellingen`)**
+Deze tabel legt de transacties vast: welke klant heeft wanneer een bestelling geplaatst.
 
-## Conclusie
+| **bestelling_id (PK)** | **klant_id (FK)** | bestel_datum | totaalbedrag |
+|---|---|---|---|
+| 5001 | 1 | 2024-01-15 | 1275.50 |
+| 5002 | 3 | 2024-02-11 | 450.00 |
+| 5003 | 1 | 2024-02-12 | 180.00 |
+| 5004 | 2 | 2024-02-15 | 75.50 |
 
-Door deze oefeningen uit te voeren, heb je de belangrijkste Excel-vaardigheden geoefend die je hebt geleerd in de voorgaande hoofdstukken. Je hebt gewerkt met een realistisch bedrijfsdataset en technieken toegepast die vaak worden gebruikt in bedrijfsanalyse. In de volgende hoofdstukken zullen we voortbouwen op deze kennis en meer geavanceerde concepten introduceren.
+*   **Primaire Sleutel (PK):** `bestelling_id` identificeert elke bestelling uniek.
+*   **Referentiële Sleutel (FK):** `klant_id` linkt elke bestelling aan een klant in de `Klanten`-tabel.
+
+### 2.4.3 De kracht van relaties: het volledige plaatje
+
+De individuele tabellen zijn nuttig, maar de echte kracht van een relationele database komt naar voren wanneer we de relaties gebruiken om complexe vragen te beantwoorden.
+
+**Vraag: Wat heeft Lotte Peeters besteld?**
+
+Om deze vraag te beantwoorden, combineert de database informatie uit alle tabellen:
+1.  We zoeken in de `Klanten`-tabel naar "Lotte Peeters" en vinden `klant_id` = 1.
+2.  We zoeken in de `Bestellingen`-tabel naar alle bestellingen met `klant_id` = 1. We vinden `bestelling_id` 5001 en 5003.
+3.  Maar wat zat er in die bestellingen? Hiervoor hebben we een **tussentabel** nodig, omdat een bestelling meerdere producten kan bevatten en een product in meerdere bestellingen kan voorkomen (een veel-op-veel relatie).
+
+**4. Bestelregels Tabel (`Bestelregels`)**
+Deze tabel verbindt producten met bestellingen.
+
+| **bestelregel_id (PK)** | **bestelling_id (FK)** | **product_id (FK)** | aantal | prijs_per_stuk |
+|---|---|---|---|---|
+| 801 | 5001 | 101 | 1 | 1200.00 |
+| 802 | 5001 | 102 | 1 | 75.50 |
+| 803 | 5002 | 104 | 1 | 450.00 |
+| 804 | 5003 | 103 | 1 | 180.00 |
+| 805 | 5004 | 102 | 1 | 75.50 |
+
+Nu kunnen we het volledige verhaal vertellen:
+*   Bestelling 5001 (van Lotte Peeters) bevatte een Laptop Pro (`product_id` 101) en een Draadloze Muis (`product_id` 102).
+*   Bestelling 5003 (ook van Lotte Peeters) bevatte een Mechanisch Toetsenbord (`product_id` 103).

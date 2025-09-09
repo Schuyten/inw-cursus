@@ -22,6 +22,10 @@ import chapter2_4_wi from '../content/wi/chapter2_4.md'
 import chapter4_4_wi from '../content/wi/chapter4_4.md'
 
 import chapter1_1_bwe from '../content/bwe/chapter1_1.md'
+import chapter1_2_bwe from '../content/bwe/chapter1_2.md'
+import chapter1_3_bwe from '../content/bwe/chapter1_3.md'
+import chapter1_4_bwe from '../content/bwe/chapter1_4.md'
+import chapter1_5_bwe from '../content/bwe/chapter1_5.md'
 import chapter2_1_bwe from '../content/bwe/chapter2_1.md'
 import chapter2_2_bwe from '../content/bwe/chapter2_2.md'
 import chapter2_3_bwe from '../content/bwe/chapter2_3.md'
@@ -29,13 +33,20 @@ import chapter2_4_bwe from '../content/bwe/chapter2_4.md'
 import chapter3_1_bwe from '../content/bwe/chapter3_1.md'
 import chapter3_2_bwe from '../content/bwe/chapter3_2.md'
 import chapter3_3_bwe from '../content/bwe/chapter3_3.md'
-
-import chapter13_1_bwe from '../content/bwe/chapter13_1.md'
-import chapter13_2_bwe from '../content/bwe/chapter13_2.md'
-import chapter14_1_bwe from '../content/bwe/chapter14_1.md'
-import chapter14_2_bwe from '../content/bwe/chapter14_2.md'
-import chapter14_3_bwe from '../content/bwe/chapter14_3.md'
-import chapter15_1_bwe from '../content/bwe/chapter15_1.md'
+import chapter4_1_bwe from '../content/bwe/chapter4_1.md'
+import chapter4_2_bwe from '../content/bwe/chapter4_2.md'
+import chapter4_3_bwe from '../content/bwe/chapter4_3.md'
+import chapter4_4_bwe from '../content/bwe/chapter4_4.md'
+import chapter5_1_bwe from '../content/bwe/chapter5_1.md'
+import chapter5_2_bwe from '../content/bwe/chapter5_2.md'
+import chapter5_3_bwe from '../content/bwe/chapter5_3.md'
+import chapter6_1_bwe from '../content/bwe/chapter6_1.md'
+import chapter6_2_bwe from '../content/bwe/chapter6_2.md'
+import chapter7_1_bwe from '../content/bwe/chapter7_1.md'
+import chapter7_2_bwe from '../content/bwe/chapter7_2.md'
+import chapter7_3_bwe from '../content/bwe/chapter7_3.md'
+import chapter8_1_bwe from '../content/bwe/chapter8_1.md'
+import chapter0_1_bwe from '../content/bwe/chapter0_1.md'
 
 import chapter1_1_python from '../content/python/chapter1_1.md'
 import chapter1_2_python from '../content/python/chapter1_2.md'
@@ -211,216 +222,83 @@ const courses = [
     description: 'Graadcursus voor Bedrijfswetenschappen: relationele databanken (ERD, normalisatie), SQL (queries en DML), datawarehousing en ETL/ELT, big data, en visualisaties met BI-tools. In te plannen in 5e en/of 6e jaar.',
     chapters: [
       {
-        id: 1,
-        title: "1. Introductie: Relationele Databanken en Big Data",
+        id: 0,
+        title: "0. Introductie",
         subchapters: [
-          { id: '1.1', title: "1.1 Introductie en Cursusdoelen" },
-          { id: '1.2', title: "1.2 Cursusstructuur en Kernconcepten" },
+          { id: '0.1', title: "0.1 Welkom bij de cursus" },
+        ]
+      },
+      {
+        id: 1,
+        title: "1. Gegevens Organiseren met Spreadsheets",
+        subchapters: [
+          { id: '1.1', title: "1.1 Introductie tot gegevensorganisatie met Excel" },
+          { id: '1.2', title: "1.2 Excel Interface en Gegevensinvoer" },
+          { id: '1.3', title: "1.3 Celformattering in Excel" },
+          { id: '1.4', title: "1.4 Oefeningen" },
+          { id: '1.5', title: "1.5 De beperkingen van Excel" },
         ]
       },
       {
         id: 2,
-        title: "2. Tabellen en Gegevensorganisatie met Excel",
+        title: "2. De Wereld van Databases",
         subchapters: [
-          { id: '2.1', title: "2.1 Basisprincipes van Excel-spreadsheets" },
-          { id: '2.2', title: "2.2 Excel Interface en Gegevensinvoer" },
-          { id: '2.3', title: "2.3 Celformattering in Excel" },
-          { id: '2.4', title: "2.4 Oefeningen" },
-          { id: '2.5', title: "2.5 Data visualisatie" },
+          { id: '2.1', title: "2.1 Wat is een relationele database?" },
+          { id: '2.2', title: "2.2 Structuur en werking: tabellen, sleutels, relaties" },
+          { id: '2.3', title: "2.3 Waarom databases gebruiken? Integriteit, consistentie, redundantie" },
+          { id: '2.4', title: "2.4 Databases in de praktijk: voorbeelden" },
         ]
       },
       {
         id: 3,
-        title: "3. Databanken",
+        title: "3. Databasemodellering (ERD & Normalisatie)",
         subchapters: [
-          { id: '3.1', title: "3.1 Introductie tot Databanken" },
-          { id: '3.2', title: "3.2 Werktitel" },
-          { id: '3.3', title: "3.3 Ook een werktitel" },
+          { id: '3.1', title: "3.1 Van probleemstelling naar datamodel" },
+          { id: '3.2', title: "3.2 Entity-Relationship Diagram (ERD) opstellen" },
+          { id: '3.3', title: "3.3 Normalisatie" },
         ]
       },
       {
         id: 4,
-        title: "4. Data Visualisatie met Excel",
+        title: "4. SQL Deel 1: Databases Creëren en Bevragen",
         subchapters: [
-          { id: '4.1', title: "4.1 Soorten grafieken en wanneer gebruiken" },
-          { id: '4.2', title: "4.2 Grafieken maken en aanpassen" },
-          { id: '4.3', title: "4.3 Sparklines" },
-          { id: '4.4', title: "4.4 Dashboardbasics" },
+          { id: '4.1', title: "4.1 Introductie tot SQL" },
+          { id: '4.2', title: "4.2 Tabellen en constraints" },
+          { id: '4.3', title: "4.3 Data bevragen met SELECT" },
+          { id: '4.4', title: "4.4 Data filteren en sorteren" },
         ]
       },
       {
         id: 5,
-        title: "5. Introductie tot Databases",
+        title: "5. SQL Deel 2: Data Manipuleren en Combineren",
         subchapters: [
-          { id: '5.1', title: "5.1 Wat is een database?" },
-          { id: '5.2', title: "5.2 Verschillen tussen spreadsheets en databases" },
-          { id: '5.3', title: "5.3 Soorten databases (focus op relationele databases)" },
-          { id: '5.4', title: "5.4 Basisdatabase terminologie" },
+          { id: '5.1', title: "5.1 Gegevens toevoegen, aanpassen en verwijderen" },
+          { id: '5.2', title: "5.2 Aggregatiefuncties en groeperen" },
+          { id: '5.3', title: "5.3 Data uit meerdere tabellen combineren (JOINs)" },
         ]
       },
       {
         id: 6,
-        title: "6. Ontwerpen van een eenvoudige Database",
+        title: "6. Introductie tot Big Data",
         subchapters: [
-          { id: '6.1', title: "6.1 Database structuur plannen" },
-          { id: '6.2', title: "6.2 Tabellen maken en velden definiëren" },
-          { id: '6.3', title: "6.3 Primaire en vreemde sleutels" },
-          { id: '6.4', title: "6.4 Relaties tussen tabellen" },
+          { id: '6.1', title: "6.1 Wat is Big Data? De 5 V's" },
+          { id: '6.2', title: "6.2 Belang en impact van Big Data" },
         ]
       },
       {
         id: 7,
-        title: "7. Introductie tot SQL",
+        title: "7. Data Warehousing en Business Intelligence",
         subchapters: [
-          { id: '7.1', title: "7.1 Basis SQL syntax" },
-          { id: '7.2', title: "7.2 SELECT statements" },
-          { id: '7.3', title: "7.3 Gegevens filteren met WHERE" },
-          { id: '7.4', title: "7.4 Gegevens sorteren met ORDER BY" },
+          { id: '7.1', title: "7.1 Data Warehousing en ETL" },
+          { id: '7.2', title: "7.2 Introductie tot Business Intelligence (BI)" },
+          { id: '7.3', title: "7.3 Data visualiseren met een BI-tool" },
         ]
       },
       {
         id: 8,
-        title: "8. Geavanceerde SQL Queries",
+        title: "8. Eindproject",
         subchapters: [
-          { id: '8.1', title: "8.1 Tabellen joinen" },
-          { id: '8.2', title: "8.2 Aggregate functies" },
-          { id: '8.3', title: "8.3 Subqueries" },
-          { id: '8.4', title: "8.4 Tabellen maken en wijzigen" },
-        ]
-      },
-      {
-        id: 9,
-        title: "9. Big Data Concepten",
-        subchapters: [
-          { id: '9.1', title: "9.1 Wat is Big Data?" },
-          { id: '9.2', title: "9.2 De 5 V's van Big Data" },
-          { id: '9.3', title: "9.3 Overzicht van Big Data technologieën" },
-          { id: '9.4', title: "9.4 Big Data use cases en voorbeelden" },
-        ]
-      },
-      {
-        id: 10,
-        title: "10. Introductie tot Data Warehousing",
-        subchapters: [
-          { id: '10.1', title: "10.1 Wat is een data warehouse?" },
-          { id: '10.2', title: "10.2 Data warehouse architectuur" },
-          { id: '10.3', title: "10.3 ETL processen" },
-          { id: '10.4', title: "10.4 Verschillen tussen operationele en analytische databases" },
-        ]
-      },
-      {
-        id: 11,
-        title: "11. Data Analyse en Visualisatie Tools",
-        subchapters: [
-          { id: '11.1', title: "11.1 Introductie tot business intelligence tools" },
-          { id: '11.2', title: "11.2 Overzicht van populaire BI platforms" },
-          { id: '11.3', title: "11.3 Basisrapporten en dashboards maken" },
-          { id: '11.4', title: "11.4 Principes van data storytelling" },
-        ]
-      },
-      {
-        id: 12,
-        title: "12. Eindproject: Bouwen van een Data Oplossing",
-        subchapters: [
-          { id: '12.1', title: "12.1 Geleerde concepten toepassen op een echt probleem" },
-          { id: '12.2', title: "12.2 Database ontwerpen en implementeren" },
-          { id: '12.3', title: "12.3 Gegevens analyseren met SQL" },
-          { id: '12.4', title: "12.4 Visualisaties en rapporten maken" },
-        ]
-      },
-      {
-        id: 13,
-        title: "13. Introductie",
-        subchapters: [
-          { id: '13.1', title: "13.1 Overzicht" },
-          { id: '13.2', title: "13.2 Herhaling Excel" },
-        ]
-      },
-      {
-        id: 14,
-        title: "14. Introductie tot Databases en Big Data",
-        subchapters: [
-          { id: '14.1', title: "14.1 Van Excel naar Databases" },
-          { id: '14.2', title: "14.2 Introductie tot Big Data" },
-          { id: '14.3', title: "14.3 Business Intelligence vs. Big Data" },
-        ]
-      },
-      {
-        id: 15,
-        title: "15. Relationele Databases",
-        subchapters: [
-          { id: '15.1', title: "15.1 Introductie tot Relationele Databases" },
-        ]
-      },
-      {
-        id: 16,
-        title: "16. SQL Fundamentals",
-        subchapters: [
-          { id: '16.1', title: "16.1 Introductie tot SQL" },
-          { id: '16.2', title: "16.2 SELECT Queries en Filtering" },
-          { id: '16.3', title: "16.3 Joins en Subqueries" },
-          { id: '16.4', title: "16.4 Data Manipulatie en Definitie" },
-        ]
-      },
-      {
-        id: 17,
-        title: "17. Datawarehousing en Business Intelligence",
-        subchapters: [
-          { id: '17.1', title: "17.1 Concepten van Datawarehousing" },
-          { id: '17.2', title: "17.2 ETL Processen" },
-          { id: '17.3', title: "17.3 Introductie tot Power BI" },
-          { id: '17.4', title: "17.4 Dashboards en Rapportages" },
-        ]
-      },
-      {
-        id: 18,
-        title: "18. Introductie tot Python",
-        subchapters: [
-          { id: '18.1', title: "18.1 Python Basics" },
-          { id: '18.2', title: "18.2 Variabelen en Datatypes" },
-          { id: '18.3', title: "18.3 Controlestructuren" },
-          { id: '18.4', title: "18.4 Functies en Modules" },
-        ]
-      },
-      {
-        id: 19,
-        title: "19. Python voor Data-analyse",
-        subchapters: [
-          { id: '19.1', title: "19.1 Numpy en Pandas Basics" },
-          { id: '19.2', title: "19.2 Data Cleaning en Preprocessing" },
-          { id: '19.3', title: "19.3 Data Visualisatie met Matplotlib" },
-          { id: '19.4', title: "19.4 Statistische Analyse" },
-        ]
-      },
-      {
-        id: 20,
-        title: "20. Geavanceerde Data-analyse Technieken",
-        subchapters: [
-          { id: '20.1', title: "20.1 Machine Learning Basics" },
-          { id: '20.2', title: "20.2 Regressie en Classificatie" },
-          { id: '20.3', title: "20.3 Clustering en Dimensionaliteitsreductie" },
-          { id: '20.4', title: "20.4 Tijdreeksanalyse" },
-        ]
-      },
-      {
-        id: 21,
-        title: "21. Big Data Technologieën",
-        subchapters: [
-          { id: '21.1', title: "21.1 Hadoop en MapReduce" },
-          { id: '21.2', title: "21.2 Apache Spark Basics" },
-          { id: '21.3', title: "21.3 NoSQL Databases" },
-          { id: '21.4', title: "21.4 Big Data Use Cases" },
-          { id: '21.5', title: "21.5 Cloud Computing voor Big Data" },
-        ]
-      },
-      {
-        id: 22,
-        title: "22. Eindproject: Data-analyse in de Praktijk",
-        subchapters: [
-          { id: '22.1', title: "22.1 Projectdefinitie en Dataverzameling" },
-          { id: '22.2', title: "22.2 Data-analyse en Modellering" },
-          { id: '22.3', title: "22.3 Visualisatie en Rapportage" },
-          { id: '22.4', title: "22.4 Presentatie en Evaluatie" },
+          { id: '8.1', title: "8.1 Casestudy: van probleem naar data-oplossing" },
         ]
       }
     ]
@@ -482,7 +360,12 @@ const chapterContent = {
     '6.5': chapter6_5_python,
   },
   'inw-bwe': {
+    '0.1': chapter0_1_bwe,
     '1.1': chapter1_1_bwe,
+    '1.2': chapter1_2_bwe,
+    '1.3': chapter1_3_bwe,
+    '1.4': chapter1_4_bwe,
+    '1.5': chapter1_5_bwe,
     '2.1': chapter2_1_bwe,
     '2.2': chapter2_2_bwe,
     '2.3': chapter2_3_bwe,
@@ -490,12 +373,19 @@ const chapterContent = {
     '3.1': chapter3_1_bwe,
     '3.2': chapter3_2_bwe,
     '3.3': chapter3_3_bwe,
-    '13.1': chapter13_1_bwe,
-    '13.2': chapter13_2_bwe,
-    '14.1': chapter14_1_bwe,
-    '14.2': chapter14_2_bwe,
-    '14.3': chapter14_3_bwe,
-    '15.1': chapter15_1_bwe,
+    '4.1': chapter4_1_bwe,
+    '4.2': chapter4_2_bwe,
+    '4.3': chapter4_3_bwe,
+    '4.4': chapter4_4_bwe,
+    '5.1': chapter5_1_bwe,
+    '5.2': chapter5_2_bwe,
+    '5.3': chapter5_3_bwe,
+    '6.1': chapter6_1_bwe,
+    '6.2': chapter6_2_bwe,
+    '7.1': chapter7_1_bwe,
+    '7.2': chapter7_2_bwe,
+    '7.3': chapter7_3_bwe,
+    '8.1': chapter8_1_bwe,
   },
   
 };

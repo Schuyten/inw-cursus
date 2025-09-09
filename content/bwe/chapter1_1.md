@@ -1,59 +1,63 @@
-# Introductie: Relationele Databanken en Big Data
+# 1.1 Introductie tot gegevensorganisatie met Excel
 
-Welkom bij de cursus Relationele Databanken en Big Data! In deze cursus leer je de fundamentele concepten van gegevensopslag- en analyse, beginnend met eenvoudige spreadsheets en eindigend met complexe big data-systemen.
+In dit hoofdstuk leren we de basisprincipes van gegevensorganisatie met behulp van Microsoft Excel. We zullen een eenvoudige tabel met leerlinggegevens gebruiken om de verschillende concepten te illustreren.
 
-## Waarom Relationele Databanken en Big Data?
+## Basisprincipes van Excel-spreadsheets
 
-In de huidige digitale wereld is het vermogen om grote hoeveelheden gegevens efficiënt op te slaan, te beheren en te analyseren van cruciaal belang. Deze vaardigheden zijn essentieel in zowat alle sectoren, waaronder:
+Excel is een krachtig programma voor het organiseren, analyseren en visualiseren van gegevens. Een Excel-bestand bestaat uit één of meerdere werkbladen, die elk een raster van cellen bevatten.
 
-- Bedrijfsleven en finance
-- Gezondheidszorg en medisch onderzoek
-- Wetenschappelijk onderzoek
-- Marketing en klantenanalyse
-- Overheid en beleidsvorming
+## Maken en beheren van tabellen
 
-## Cursusdoelen
+Laten we beginnen met een eenvoudige tabel met leerlinggegevens:
 
-Na het voltooien van deze cursus zou je in staat moeten zijn om:
+| Leerlingnaam   | Wiskunde | Nederlands | Engels | Geschiedenis | Gemiddelde |
+|----------------|----------|------------|--------|--------------|------------|
+| Jan Janssen    | 7.5      | 6.8        | 8.2    | 7.0          |            |
+| Piet Pietersen | 6.2      | 5.5        | 6.0    | 6.3          |            |
+| Marie de Vries | 8.8      | 9.0        | 8.5    | 8.7          |            |
+| Sofie de Jong  | 5.8      | 7.2        | 6.5    | 6.8          |            |
+| Ahmed Boulahri | 7.0      | 7.8        | 7.3    | 7.5          |            |
 
-1. De structuur en werking van relationele databanken uit te leggen en te implementeren.
-2. Een relationele databank te ontwerpen, implementeren en uitbreiden.
-3. SQL te gebruiken om gegevens in een relationele databank te bevragen en te wijzigen.
-4. De kenmerken van big data te begrijpen en het belang ervan voor onderzoek in te schatten.
-5. Een datawarehouse samen te stellen en te bevragen op basis van een onderzoeksvraag.
-6. Visualisaties te maken met een business intelligence tool.
+## Rijen, kolommen, cellen en gegevenstypen
 
-## Cursusstructuur
+- **Rijen**: Horizontale reeksen cellen, hier vertegenwoordigen ze individuele leerlingen.
+- **Kolommen**: Verticale reeksen cellen, hier vertegenwoordigen ze verschillende vakken en het gemiddelde.
+- **Cellen**: Individuele gegevenspunten waar rijen en kolommen elkaar kruisen.
+- **Gegevenstypen**: In deze tabel hebben we voornamelijk te maken met tekst (namen) en getallen (cijfers).
 
-We beginnen met de basisprincipes van gegevensorganisatie in Excel en bouwen geleidelijk op naar complexere concepten:
+## Basisformules en functies voor gegevensinvoer- en manipulatie
 
-1. Introductie tot Tabellen en Gegevensorganisatie met Excel
-2. Overgang naar Relationele Databanken
-3. Ontwerp en Implementatie van een Relationele Databank
-4. Bevragen en Analyseren van een Relationele Databank
-5. Big Data en Datawarehousing
-6. Project en Toepassingen
+Laten we het gemiddelde berekenen voor elke leerling:
 
-## Kernconcepten
+1. Selecteer cel F2 (de eerste cel in de Gemiddelde-kolom).
+2. Voer de volgende formule in: `=GEMIDDELDE(B2:E2)`
+3. Druk op Enter. Je zou nu het gemiddelde voor Jan Janssen moeten zien.
+4. Kopieer deze formule naar de andere cellen in de Gemiddelde-kolom.
 
-Tijdens deze cursus zullen we de volgende kernconcepten behandelen:
+De formule `GEMIDDELDE` berekent het gemiddelde van een reeks getallen. `B2:E2` is de reeks cellen waarover het gemiddelde wordt berekend.
 
-- Tabellen, rijen, kolommen, en gegevenstypen
-- Relationele databanken en DBMS
-- SQL voor gegevensdefinitie-, manipulatie- en bevraging
-- Datamodellering en normalisatie
-- Big data-kenmerken en datawarehousing
-- Data-analyse- en visualisatie
+## Sorteren en filteren van gegevens
 
-We zullen deze concepten toepassen op praktische probleemstellingen, waarbij we leren hoe we efficiënte en schaalbare oplossingen kunnen ontwerpen voor gegevensbeheer en -analyse.
+Je kunt de gegevens sorteren om ze beter te analyseren:
 
-Hier is alvast een eenvoudig voorbeeld van een SQL-query:
+1. Selecteer de hele tabel.
+2. Ga naar het tabblad "Gegevens" en klik op "Sorteren".
+3. Kies "Gemiddelde" als kolom en "Van hoog naar laag" als sorteervolgorde.
 
-```sql
-SELECT naam, leeftijd
-FROM studenten
-WHERE studierichting = 'Bedrijfswetenschappen'
-ORDER BY leeftijd DESC;
-```
+Je kunt ook filteren om alleen bepaalde gegevens te zien:
 
-Deze query selecteert de naam en leeftijd van de leerlingen bedrijfswetenschappen, gesorteerd op leeftijd van oud naar jong. Gedurende de cursus zul je leren hoe je zulke query's kunt schrijven en begrijpen, en hoe je ze kunt gebruiken om waardevolle inzichten uit je gegevens te halen.
+1. Selecteer de hele tabel.
+2. Ga naar het tabblad "Gegevens" en klik op "Filter".
+3. Klik op het pijltje in de kolomkop "Wiskunde" en selecteer alleen cijfers boven de 7.
+
+## Basisprincipes van gegevensvisualisatie met grafieken
+
+Laten we een eenvoudige grafiek maken om de prestaties van de leerlingen te visualiseren:
+
+1. Selecteer de hele tabel.
+2. Ga naar het tabblad "Invoegen" en kies voor een kolomdiagram.
+3. Excel zal automatisch een grafiek genereren die de cijfers voor elk vak per leerling weergeeft.
+
+Je kunt de grafiek aanpassen door titels toe te voegen, kleuren te wijzigen, of het type grafiek te veranderen.
+
+Door deze basisprincipes te beheersen, kun je Excel effectief gebruiken om gegevens te organiseren, te analyseren en te presenteren. In de volgende hoofdstukken zullen we zien hoe deze concepten zich vertalen naar meer geavanceerde systemen voor gegevensbeheer.

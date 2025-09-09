@@ -1,63 +1,35 @@
-# Introductie tot Tabellen en Gegevensorganisatie met Excel
+# 2.1 Wat is een relationele database?
 
-In dit hoofdstuk leren we de basisprincipes van gegevensorganisatie met behulp van Microsoft Excel. We zullen een eenvoudige tabel met leerlinggegevens gebruiken om de verschillende concepten te illustreren.
+### 2.1.1 De definitie van een database
 
-## Basisprincipes van Excel-spreadsheets
+Een **database** (of databank) is een gestructureerde verzameling van gegevens die is ontworpen om efficiënt te worden opgeslagen, beheerd en opgevraagd. In plaats van gegevens willekeurig op te slaan, organiseert een database informatie in een duidelijke structuur, meestal in de vorm van tabellen.
 
-Excel is een krachtig programma voor het organiseren, analyseren en visualiseren van gegevens. Een Excel-bestand bestaat uit één of meerdere werkbladen, die elk een raster van cellen bevatten.
+Denk aan een digitale archiefkast die niet alleen heel veel informatie kan bevatten, maar waar je ook razendsnel de juiste informatie in kan vinden en verbanden kan leggen tussen verschillende documenten.
 
-## Maken en beheren van tabellen
+De meest voorkomende soort database is de **relationele database**. Hierbij worden gegevens opgeslagen in tabellen die via vooraf gedefinieerde relaties met elkaar verbonden zijn. Dit maakt het mogelijk om complexe verbanden in de data te beheren en te bevragen.
 
-Laten we beginnen met een eenvoudige tabel met leerlinggegevens:
+### 2.1.2 De bouwstenen van een relationele database
 
-| Leerlingnaam   | Wiskunde | Nederlands | Engels | Geschiedenis | Gemiddelde |
-|----------------|----------|------------|--------|--------------|------------|
-| Jan Janssen    | 7.5      | 6.8        | 8.2    | 7.0          |            |
-| Piet Pietersen | 6.2      | 5.5        | 6.0    | 6.3          |            |
-| Marie de Vries | 8.8      | 9.0        | 8.5    | 8.7          |            |
-| Sofie de Jong  | 5.8      | 7.2        | 6.5    | 6.8          |            |
-| Ahmed Boulahri | 7.0      | 7.8        | 7.3    | 7.5          |            |
+Een relationele database is opgebouwd uit enkele fundamentele componenten:
 
-## Rijen, kolommen, cellen en gegevenstypen
+*   **Tabellen (Tables):** De basisstructuur waarin gegevens worden opgeslagen. Een database bevat meestal meerdere tabellen, elk over een specifiek onderwerp (bv. een tabel voor klanten, een voor producten, en een voor bestellingen).
 
-- **Rijen**: Horizontale reeksen cellen, hier vertegenwoordigen ze individuele leerlingen.
-- **Kolommen**: Verticale reeksen cellen, hier vertegenwoordigen ze verschillende vakken en het gemiddelde.
-- **Cellen**: Individuele gegevenspunten waar rijen en kolommen elkaar kruisen.
-- **Gegevenstypen**: In deze tabel hebben we voornamelijk te maken met tekst (namen) en getallen (cijfers).
+*   **Rijen / Records:** Een horizontale rij in een tabel die één enkel item of entiteit vertegenwoordigt. In een `Klanten`-tabel zou elke rij bijvoorbeeld één unieke klant voorstellen.
 
-## Basisformules en functies voor gegevensinvoer- en manipulatie
+*   **Kolommen / Velden (Fields):** Een verticale kolom in een tabel die een specifiek kenmerk of attribuut van de items in de tabel beschrijft. In een `Klanten`-tabel zouden de kolommen bijvoorbeeld `Naam`, `Adres` en `Email` kunnen zijn.
 
-Laten we het gemiddelde berekenen voor elke leerling:
+*   **Gegevenstypen (Data Types):** Elke kolom heeft een specifiek gegevenstype dat bepaalt welk soort data erin kan worden opgeslagen (bv. tekst, getal, datum). Dit helpt de gegevensintegriteit te bewaren.
 
-1. Selecteer cel F2 (de eerste cel in de Gemiddelde-kolom).
-2. Voer de volgende formule in: `=GEMIDDELDE(B2:E2)`
-3. Druk op Enter. Je zou nu het gemiddelde voor Jan Janssen moeten zien.
-4. Kopieer deze formule naar de andere cellen in de Gemiddelde-kolom.
+Hieronder zie je een visuele voorstelling van een tabel:
 
-De formule `GEMIDDELDE` berekent het gemiddelde van een reeks getallen. `B2:E2` is de reeks cellen waarover het gemiddelde wordt berekend.
+![Database Table Structure](https://i.imgur.com/2cK3zJq.png)
 
-## Sorteren en filteren van gegevens
+### 2.1.3 Databases in het dagelijks leven
 
-Je kunt de gegevens sorteren om ze beter te analyseren:
+Je hebt vaker met databases te maken dan je misschien denkt. Veel van de diensten die je dagelijks gebruikt, draaien op krachtige databases:
 
-1. Selecteer de hele tabel.
-2. Ga naar het tabblad "Gegevens" en klik op "Sorteren".
-3. Kies "Gemiddelde" als kolom en "Van hoog naar laag" als sorteervolgorde.
+*   **Netflix:** Slaat enorme hoeveelheden data op over films, series, gebruikers, kijkgeschiedenis en voorkeuren. Op basis van deze data kan Netflix je gepersonaliseerde aanbevelingen doen.
+*   **Instagram:** Elk profiel, elke foto, elke like en elke volger wordt opgeslagen in een gigantische database. Hiermee wordt jouw persoonlijke feed samengesteld en worden connecties tussen gebruikers beheerd.
+*   **Webshops (bv. Bol.com):** Beheren hun volledige productcatalogus, voorraadniveaus, klantgegevens en bestellingen in een database. Dit zorgt ervoor dat je de juiste producten ziet, de voorraad klopt en je bestelling correct wordt verwerkt.
 
-Je kunt ook filteren om alleen bepaalde gegevens te zien:
-
-1. Selecteer de hele tabel.
-2. Ga naar het tabblad "Gegevens" en klik op "Filter".
-3. Klik op het pijltje in de kolomkop "Wiskunde" en selecteer alleen cijfers boven de 7.
-
-## Basisprincipes van gegevensvisualisatie met grafieken
-
-Laten we een eenvoudige grafiek maken om de prestaties van de leerlingen te visualiseren:
-
-1. Selecteer de hele tabel.
-2. Ga naar het tabblad "Invoegen" en kies voor een kolomdiagram.
-3. Excel zal automatisch een grafiek genereren die de cijfers voor elk vak per leerling weergeeft.
-
-Je kunt de grafiek aanpassen door titels toe te voegen, kleuren te wijzigen, of het type grafiek te veranderen.
-
-Door deze basisprincipes te beheersen, kun je Excel effectief gebruiken om gegevens te organiseren, te analyseren en te presenteren. In de volgende hoofdstukken zullen we zien hoe deze concepten zich vertalen naar meer geavanceerde systemen voor gegevensbeheer.
+In al deze voorbeelden zorgt de database op de achtergrond voor de structuur en de snelheid die nodig is om miljoenen gebruikers en enorme hoeveelheden data efficiënt te beheren.
