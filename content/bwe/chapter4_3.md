@@ -1,4 +1,4 @@
-## Hoofdstuk 4.3: Data Beveagen met `SELECT`
+## Hoofdstuk 4.3: Data Bevragen met `SELECT`
 
 Het meest gebruikte commando in SQL is `SELECT`. Het is de hoeksteen van de Data Query Language (DQL) en stelt ons in staat om specifieke informatie uit onze databasetabellen op te halen. Met `SELECT` kunnen we precies aangeven welke kolommen we willen zien en uit welke tabel we die informatie willen halen.
 
